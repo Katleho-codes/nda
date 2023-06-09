@@ -125,6 +125,29 @@ h4.signature_heading {
   display: none;
 }
 
+.clear {
+  background-color: #0d0d0d;
+  color: white;
+  font-family: inherit;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 3px;
+}
+
+.submit {
+  background-color: #0d0d0d;
+  color: white;
+  font-family: inherit;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 3px;
+  display: block;
+  width: 100%;
+  margin: 1rem auto;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 768px) {
   main {
     padding: 0.6rem;

@@ -234,7 +234,7 @@ submit.addEventListener("click", function () {
   // Check for full name
   var regexPattern = /^[\p{L}]([-']?[\p{L}]+)*( [\p{L}]([-']?[\p{L}]+)*)+$/;
   // Check for email address
-  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
   var error = document.querySelector(".error");
 
   doc.setFontSize(12);
