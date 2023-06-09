@@ -1,23 +1,226 @@
-.wrapper {
-  position: relative;
-  width: 400px;
-  height: 200px;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-img {
-  position: absolute;
-  left: 0;
-  top: 0;
+html,
+body {
+  height: 100vh;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#title {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  margin: 1rem auto;
+  padding: 0;
+  line-height: 1;
+  font-family: inherit;
+  color: #ff0000;
+}
+
+p#subtitle {
+  font-weight: 600;
+}
+
+.wrapper {
+  max-width: 90%;
+  min-width: 90%;
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #0d0d0d;
+  padding: 1rem;
+}
+
+p,
+li,
+label,
+input {
+  font-family: inherit;
+  color: #0d0d0d;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .signature-pad {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 400px;
+  padding: 1rem;
+  width: 100%;
   height: 200px;
+  border: 1px solid rgb(13, 13, 13);
+}
+
+p.nb {
+  color: white;
+  font-weight: 600;
+  background-color: #0d0d0d;
+  width: 100%;
+  padding: 1rem;
+}
+
+h4.signature_heading {
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.left_col .label_and_input {
+  margin: 0.8rem auto;
+}
+.left_col .label_and_input #dd,
+.left_col .label_and_input #mm,
+.left_col .label_and_input #yyyy {
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-bottom: 1px solid #0d0d0d;
+  outline: 0;
+  width: 100%;
+}
+.left_col .input_group {
+  margin: 0.8rem auto;
+}
+.left_col .input_group label {
+  text-align: left;
+}
+.left_col .input_group input {
+  padding: 0.8rem 0.5rem;
+  border: 0;
+  border-bottom: 1px solid #0d0d0d;
+  outline: 0;
+  font-family: inherit;
+  font-weight: 500;
+  width: 100%;
+}
+.left_col .input_group select {
+  padding: 0.5rem 1rem;
+  border: 0;
   border: 1px solid #0d0d0d;
+  outline: 0;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 500;
+  width: 100%;
+}
+
+.right_col {
+  width: 100%;
+}
+
+.error {
+  text-align: center;
+  color: #ff0000;
+  font-weight: 500;
+  font-size: 1rem;
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    padding: 0.6rem;
+  }
+  #title {
+    font-size: 2rem;
+  }
+  .wrapper {
+    max-width: 85%;
+    min-width: 85%;
+    width: 85%;
+  }
+  .signature-pad {
+    padding: 1rem;
+    width: 300px;
+    height: 200px;
+    border: 1px solid rgb(13, 13, 13);
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .left_col {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .left_col .input_flex:not(.error) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .left_col .input_flex:not(.error) .label_and_input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 0;
+  }
+  .left_col .input_flex:not(.error) .label_and_input #dd,
+  .left_col .input_flex:not(.error) .label_and_input #mm,
+  .left_col .input_flex:not(.error) .label_and_input #yyyy {
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-bottom: 1px solid #0d0d0d;
+    outline: 0;
+  }
+  .left_col .input_group {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin: 0.6rem 0;
+  }
+  .left_col .input_group input {
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-bottom: 1px solid #0d0d0d;
+    outline: 0;
+    font-family: inherit;
+    font-weight: 500;
+    width: auto;
+  }
+  .left_col .input_group select {
+    padding: 0.5rem 1rem;
+    border: 0;
+    border: 1px solid #0d0d0d;
+    outline: 0;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: 500;
+    width: 100%;
+    margin: 0.6rem 0;
+  }
+  .right_col {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+  }
+  .right_col .signature_heading {
+    text-align: center;
+  }
+  .right_col .signature-pad {
+    margin-top: 1rem;
+    margin-left: auto;
+    padding: 1rem;
+    width: 400px;
+    height: 200px;
+    border: 1px solid rgb(13, 13, 13);
+  }
+  .right_col #clear {
+    display: flex;
+    margin-left: auto;
+    margin-top: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */

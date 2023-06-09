@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./scss/style.css" />
+    <title>NDA</title>
+  </head>
+
+  <body>
+    <main>
+      <h1 id="title">Non-disclosure Agreement</h1>
+
+      <section class="wrapper">
+        <p id="subtitle">
+          During the period of my employment with the Company and for a period
+          of 1 year following The termination of my employment with the Company,
+          I agree as follows:
+        </p>
+
+        <ol>
+          <li>
+            I will fully comply with all procedures, policies and rules of the
+            Company relating to the use and protection of confidential
+            information, including but not limited to information relating to
+            the Company and Samsung Electronics Co.,Ltd.
+          </li>
+          <li>
+            I will not alter or modify information disclosed to me by Samsung
+            Electronics or relating to Samsung Electronics except as may be
+            required during the course of normal business operations
+          </li>
+          <li>
+            I will not disclose confidential information provided to me by
+            Samsung Electronics to unauthorized personnel or third parties who
+            do not need to know the information, whether they may are Company
+            employees, Samsung employees, customers or temporary employee, etc.
+          </li>
+          <li>
+            I will not attempt to access any information of Samsung Electronics
+            if I do not have written authorization from the Company or Samsung
+            Electronics to do so, and I will only access such information that
+            is related to my position or function.
+          </li>
+          <li>
+            I will use G-SPN system issued to me by the Company only for the
+            purpose of conducting business relating to the Company or Samsung
+            Electronics and for no other purpose.
+          </li>
+          <li>
+            I will consent to a random inspection of user authority for G-SPN
+            system if they find confidential information of the Company, I agree
+            to delete immediately or transfer to inspector.
+          </li>
+          <li>
+            I fully understand that my ID and password are for my personnel use
+            only, and I will not disclose them to a third party or permit any
+            other person to use them.
+          </li>
+        </ol>
+
+        <div>
+          <p>
+            <strong
+              >I have carefully read all of the Agreement and agree that all of
+              the foregoing restrictions are reasonable and fair, and I further
+              agree to abide by them faithfully. I understand that I may be
+              subject to civil or criminal penalties in the event that I am
+              found to be in violation of the terms of this agreement, and I
+              agree to provide compensation for any loss or damage I may cause
+              the Company or Samsung Electronics due to unauthorized disclosure
+              of information.</strong
+            >
+          </p>
+        </div>
+        <p class="nb">
+          NB: ID’s will not be created without below details (block letters).
+          Scan file must have one NDA only
+        </p>
+
+        <span class="error">error</span>
+
+        <div class="row">
+          <div class="left_col">
+            <div class="input_flex">
+              <div class="label_and_input">
+                <label for="dd">(DD)</label>
+                <input type="text" name="dd" id="dd" size="1"  maxlength="1" />
+              
+              </div>
+      
+              <div class="label_and_input">
+                <label for="mm">(MM)</label>
+                <input type="text" name="mm" id="mm" size="2"  maxlength="2" />
+              </div>
+              <div class="label_and_input">
+                <label for="yyyy">(YYYY)</label>
+                <input type="text" name="yyyy" id="yyyy" size="4"  maxlength="4" />
+              </div>
+            </div>
+            <div class="input_group">
+              <label for="account_code">Account Code</label>
+              <input type="text" name="account_code" id="account_code" />
+            </div>
+            <div class="input_group">
+              <label for="account_company_name">Account/Company Name</label>
+              <input
+                type="text"
+                name="account_company_name"
+                id="account_company_name"
+                value="MM All Electronics"
+                readonly
+              />
+            </div>
+            <div class="input_group">
+              <label for="user_name">Users Full Name</label>
+              <input type="text" name="user_name" id="user_name" />
+            </div>
+            <div class="input_group">
+              <label for="user_email">Users Email</label>
+              <input type="email" name="user_email" id="user_email" />
+            </div>
+            <div class="input_group">
+              <label for="role">Role</label>
+
+              <select name="role" id="role">
+                <option disabled selected value>Select an option</option>
+                <option value="volvo">Volvo</option>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select>
+            </div>
+          </div>
+          <div class="right_col">
+            <h4 class="signature_heading">Signature</h4>
+            <canvas
+              id="signature-pad"
+              class="signature-pad"
+              width="400"
+              height="200"
+            ></canvas>
+            <div>
+              <!-- <button type="button" id="save">Save</button> -->
+              <button type="button" id="clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="submit">Submit</button>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
