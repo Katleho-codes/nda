@@ -47,6 +47,18 @@ input {
   font-size: 1rem;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .signature-pad {
   padding: 1rem;
   width: 100%;
@@ -162,7 +174,7 @@ h4.signature_heading {
   }
   .signature-pad {
     padding: 1rem;
-    width: 300px;
+    width: 280px;
     height: 200px;
     border: 1px solid rgb(13, 13, 13);
   }

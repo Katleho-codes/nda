@@ -256,7 +256,7 @@ submit.addEventListener("click", function () {
   var data = signaturePad
     .toDataURL("image/png")
     .replace("image/png", "image/octet-stream");
-  doc.addImage(`${data}`, "image/png", 90, 216, 80, 50);
+  doc.addImage(`${data}`, "image/png", 128, 220, 80, 50);
 
   if (day.length > 1 || day === "" || day.length < 1) {
     error.style.display = "block";

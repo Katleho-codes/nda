@@ -44,7 +44,18 @@ input {
     font-weight: 500;
     font-size: 1rem;
 }
+// Hide number arrows from user input fields that take number as type
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 .signature-pad {
     padding: 1rem;
     width: 100%;
@@ -160,7 +171,7 @@ h4.signature_heading {
         // left: 0;
         // top: 1000;
         padding: 1rem;
-        width: 300px;
+        width: 280px;
         height: 200px;
         border: 1px solid rgb(13, 13, 13);
     }
