@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex">
     <link rel="stylesheet" href="./scss/style.css" />
     <title>NDA</title>
   </head>
@@ -106,7 +107,7 @@
             </div>
             <div class="input_group">
               <label for="account_code">Account Code</label>
-              <input type="number" name="account_code" id="account_code" />
+              <input type="number" name="account_code" id="account_code" value="1730640" readonly  />
             </div>
             <div class="input_group">
               <label for="account_company_name">Account/Company Name</label>
@@ -161,6 +162,6 @@
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
-    <script src="./index.js"></script>
+    <script src="./index.js" defer></script>
   </body>
 </html>

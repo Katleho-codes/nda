@@ -1,22 +1,29 @@
+require("dotenv").config();
+
+
 window.jsPDF = window.jspdf.jsPDF;
 
-var signaturePad = new SignaturePad(document.getElementById("signature-pad"), {
-  backgroundColor: "rgba(255, 255, 255, 0)",
-  penColor: "rgb(0, 0, 0)",
-  dotSize: 1,
-});
-// var saveButton = document.getElementById("save");
-var cancelButton = document.getElementById("clear");
+
+const signaturePad = new SignaturePad(
+  document.getElementById("signature-pad"),
+  {
+    backgroundColor: "rgba(255, 255, 255, 0)",
+    penColor: "rgb(0, 0, 0)",
+    dotSize: 1,
+  }
+);
+// const saveButton = document.getElementById("save");
+const cancelButton = document.getElementById("clear");
 
 // saveButton.addEventListener("click", function () {
-//   //   var data = signaturePad.toDataURL("image/png");
+//   //   const data = signaturePad.toDataURL("image/png");
 //   if (signaturePad."") {
 //     alert("Please enter a signature");
 //   } else {
-//     var data = signaturePad
+//     const data = signaturePad
 //       .toDataURL("image/png")
 //       .replace("image/png", "image/octet-stream");
-//     var link = document.createElement("a");
+//     const link = document.createElement("a");
 //     link.download = "employee.png";
 //     link.href = data;
 //     link.click();
@@ -31,10 +38,10 @@ cancelButton.addEventListener("click", function (event) {
 //   if (signaturePad."") {
 //     alert("Please enter a signature");
 //   } else {
-//     var data = signaturePad
+//     const data = signaturePad
 //       .toDataURL("image/png")
 //       .replace("image/png", "image/octet-stream");
-//     var link = document.createElement("a");
+//     const link = document.createElement("a");
 //     link.download = "employee.png";
 //     link.href = data;
 //     link.click();
@@ -43,9 +50,9 @@ cancelButton.addEventListener("click", function (event) {
 
 // Form begins here
 
-// var form = document.getElementById("form");
-var submit = document.getElementById("submit");
-var doc = new jsPDF();
+// const form = document.getElementById("form");
+const submit = document.getElementById("submit");
+const doc = new jsPDF();
 
 submit.addEventListener("click", function () {
   doc.setTextColor(255, 0, 0);
@@ -220,22 +227,22 @@ submit.addEventListener("click", function () {
     192
   );
 
-  var day = document.getElementById("dd").value;
-  var month = document.getElementById("mm").value;
-  var year = document.getElementById("yyyy").value;
-  var accountCode = document.getElementById("account_code").value;
-  var accountCompanyName = document.getElementById(
+  const day = document.getElementById("dd").value;
+  const month = document.getElementById("mm").value;
+  const year = document.getElementById("yyyy").value;
+  const accountCode = document.getElementById("account_code").value;
+  const accountCompanyName = document.getElementById(
     "account_company_name"
   ).value;
-  var userName = document.getElementById("user_name").value;
-  var userEmail = document.getElementById("user_email").value;
-  var select = document.getElementById("role").value;
+  const userName = document.getElementById("user_name").value;
+  const userEmail = document.getElementById("user_email").value;
+  const select = document.getElementById("role").value;
 
   // Check for full name
-  var regexPattern = /^[\p{L}]([-']?[\p{L}]+)*( [\p{L}]([-']?[\p{L}]+)*)+$/;
+  const regexPattern = /^[\p{L}]([-']?[\p{L}]+)*( [\p{L}]([-']?[\p{L}]+)*)+$/;
   // Check for email address
 
-  var error = document.querySelector(".error");
+  const error = document.querySelector(".error");
 
   doc.setFontSize(12);
   doc.setFont(undefined, "normal");
@@ -253,7 +260,7 @@ submit.addEventListener("click", function () {
   // canvas integration
   doc.rect(120, 216, 80, 50, "S");
   doc.text("Signature", 152, 208);
-  var data = signaturePad
+  const data = signaturePad
     .toDataURL("image/png")
     .replace("image/png", "image/octet-stream");
   doc.addImage(`${data}`, "image/png", 128, 220, 80, 50);
@@ -288,7 +295,8 @@ submit.addEventListener("click", function () {
     return false;
   } else {
     doc.save(`${userName}.pdf`);
-  }
+
+  
 
   // doc.save("a4.pdf");
 });
