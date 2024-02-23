@@ -78,6 +78,7 @@ h4.signature_heading {
   text-align: center;
   display: flex;
   margin: 0 auto;
+  font-family: inherit;
 }
 
 .row {
@@ -90,9 +91,7 @@ h4.signature_heading {
 .left_col .label_and_input {
   margin: 0.8rem auto;
 }
-.left_col .label_and_input #dd,
-.left_col .label_and_input #mm,
-.left_col .label_and_input #yyyy {
+.left_col .label_and_input #date {
   padding: 0.5rem 1rem;
   border: 0;
   border-bottom: 1px solid #0d0d0d;
@@ -202,9 +201,7 @@ h4.signature_heading {
     align-items: center;
     margin-left: 0;
   }
-  .left_col .input_flex:not(.error) .label_and_input #dd,
-  .left_col .input_flex:not(.error) .label_and_input #mm,
-  .left_col .input_flex:not(.error) .label_and_input #yyyy {
+  .left_col .input_flex:not(.error) .label_and_input #date {
     padding: 0.5rem 1rem;
     border: 0;
     border-bottom: 1px solid #0d0d0d;

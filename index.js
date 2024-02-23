@@ -1,9 +1,3 @@
-require("dotenv").config();
-
-
-window.jsPDF = window.jspdf.jsPDF;
-
-
 const signaturePad = new SignaturePad(
   document.getElementById("signature-pad"),
   {
@@ -12,49 +6,11 @@ const signaturePad = new SignaturePad(
     dotSize: 1,
   }
 );
-// const saveButton = document.getElementById("save");
-const cancelButton = document.getElementById("clear");
 
-// saveButton.addEventListener("click", function () {
-//   //   const data = signaturePad.toDataURL("image/png");
-//   if (signaturePad."") {
-//     alert("Please enter a signature");
-//   } else {
-//     const data = signaturePad
-//       .toDataURL("image/png")
-//       .replace("image/png", "image/octet-stream");
-//     const link = document.createElement("a");
-//     link.download = "employee.png";
-//     link.href = data;
-//     link.click();
-//   }
-// });
+window.jsPDF = window.jspdf.jsPDF;
 
-cancelButton.addEventListener("click", function (event) {
-  signaturePad.clear();
-});
-
-// function saveCanvas() {
-//   if (signaturePad."") {
-//     alert("Please enter a signature");
-//   } else {
-//     const data = signaturePad
-//       .toDataURL("image/png")
-//       .replace("image/png", "image/octet-stream");
-//     const link = document.createElement("a");
-//     link.download = "employee.png";
-//     link.href = data;
-//     link.click();
-//   }
-// }
-
-// Form begins here
-
-// const form = document.getElementById("form");
-const submit = document.getElementById("submit");
-const doc = new jsPDF();
-
-submit.addEventListener("click", function () {
+document.getElementById("submit").addEventListener("click", function () {
+  const doc = new jsPDF();
   doc.setTextColor(255, 0, 0);
   doc.setFontSize(22);
   doc.setFont(undefined, "bold");
@@ -226,10 +182,6 @@ submit.addEventListener("click", function () {
     24,
     192
   );
-
-  const day = document.getElementById("dd").value;
-  const month = document.getElementById("mm").value;
-  const year = document.getElementById("yyyy").value;
   const accountCode = document.getElementById("account_code").value;
   const accountCompanyName = document.getElementById(
     "account_company_name"
@@ -244,18 +196,35 @@ submit.addEventListener("click", function () {
 
   const error = document.querySelector(".error");
 
+  const dateTime = new Date().toDateString();
+
   doc.setFontSize(12);
   doc.setFont(undefined, "normal");
   doc.setTextColor(13, 13, 13);
 
-  doc.text(`(DD) ${day}`, 21, 208);
-  doc.text(`(MM) ${month}`, 39, 208);
-  doc.text(`(YYYY) ${year}`, 56, 208);
-  doc.text(`Account Code: ${accountCode}`, 21, 216);
-  doc.text(`Account/Company Name: ${accountCompanyName}`, 21, 224);
-  doc.text(`Users full Name: ${userName}`, 21, 232);
-  doc.text(`Users Email: ${userEmail}`, 21, 240);
-  doc.text(`Role of the User: ${select}`, 21, 248);
+  doc.text(`Date: ${dateTime}`, 21, 206);
+  doc.setDrawColor(0);
+  doc.rect(21, 208, 40, 0.3, "F");
+
+  doc.text(`Account Code: ${accountCode}`, 21, 214);
+  doc.setDrawColor(0);
+  doc.rect(21, 216, 70, 0.3, "F");
+
+  doc.text(`Account/Company Name: ${accountCompanyName}`, 21, 222);
+  doc.setDrawColor(0);
+  doc.rect(21, 224, 80, 0.3, "F");
+
+  doc.text(`Full Name: ${userName}`, 21, 230);
+  doc.setDrawColor(0);
+  doc.rect(21, 232, 80, 0.3, "F");
+
+  doc.text(`Email: ${userEmail}`, 21, 238);
+  doc.setDrawColor(0);
+  doc.rect(21, 240, 80, 0.3, "F");
+
+  doc.text(`Role: ${select}`, 21, 246);
+  doc.setDrawColor(0);
+  doc.rect(21, 248, 80, 0.3, "F");
 
   // canvas integration
   doc.rect(120, 216, 80, 50, "S");
@@ -265,38 +234,5 @@ submit.addEventListener("click", function () {
     .replace("image/png", "image/octet-stream");
   doc.addImage(`${data}`, "image/png", 128, 220, 80, 50);
 
-  if (day.length > 1 || day === "" || day.length < 1) {
-    error.style.display = "block";
-    error.innerHTML = "Please enter a day";
-    return false;
-  } else if (month.length > 2 || month === "" || month.length === "0") {
-    error.style.display = "block";
-    error.innerHTML = "Please enter a month";
-    return false;
-  } else if (year === "" || year.length < 4) {
-    error.style.display = "block";
-    error.innerHTML = "Please enter a valid year";
-    return false;
-  } else if (accountCode === "") {
-    error.style.display = "block";
-    error.innerHTML = "Please enter a valid account code";
-    return false;
-  } else if (regexPattern.test(userName)) {
-    error.style.display = "block";
-    error.innerHTML = "Please enter a valid full name";
-    return false;
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(userEmail)) {
-    error.style.display = "block";
-    error.innerHTML = "Please enter a valid email address";
-    return false;
-  } else if (signaturePad.isEmpty()) {
-    error.style.display = "block";
-    error.innerHTML = "Please enter a signature";
-    return false;
-  } else {
-    doc.save(`${userName}.pdf`);
-
-  
-
-  // doc.save("a4.pdf");
+  doc.save(`${userName} NDA.pdf`);
 });

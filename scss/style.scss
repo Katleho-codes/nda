@@ -84,6 +84,7 @@ h4.signature_heading {
     text-align: center;
     display: flex;
     margin: 0 auto;
+    font-family: inherit;
 }
 .row {
     display: flex;
@@ -94,9 +95,7 @@ h4.signature_heading {
 .left_col {
     .label_and_input {
         margin: 0.8rem auto;
-        #dd,
-        #mm,
-        #yyyy {
+        #date {
             padding: 0.5rem 1rem;
             border: 0;
             border-bottom: 1px solid #0d0d0d;
@@ -207,9 +206,7 @@ h4.signature_heading {
                 flex-direction: row;
                 align-items: center;
                 margin-left: 0;
-                #dd,
-                #mm,
-                #yyyy {
+                #date {
                     padding: 0.5rem 1rem;
                     border: 0;
                     border-bottom: 1px solid #0d0d0d;
