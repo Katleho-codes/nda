@@ -9,6 +9,22 @@ const signaturePad = new SignaturePad(
 
 window.jsPDF = window.jspdf.jsPDF;
 
+const accountCode = document.getElementById("account_code").value;
+const accountCompanyName = document.getElementById(
+  "account_company_name"
+).value;
+const userName = document.getElementById("user_name").value;
+const userEmail = document.getElementById("user_email").value;
+const select = document.getElementById("role").value;
+const error = document.querySelector(".error");
+
+const dateTime = new Date().toDateString();
+const clearButton = document.querySelector(".clear");
+
+clearButton.addEventListener("click", function () {
+  signaturePad.clear();
+});
+
 document.getElementById("submit").addEventListener("click", function () {
   const doc = new jsPDF();
   doc.setTextColor(255, 0, 0);
@@ -182,21 +198,6 @@ document.getElementById("submit").addEventListener("click", function () {
     24,
     192
   );
-  const accountCode = document.getElementById("account_code").value;
-  const accountCompanyName = document.getElementById(
-    "account_company_name"
-  ).value;
-  const userName = document.getElementById("user_name").value;
-  const userEmail = document.getElementById("user_email").value;
-  const select = document.getElementById("role").value;
-
-  // Check for full name
-  const regexPattern = /^[\p{L}]([-']?[\p{L}]+)*( [\p{L}]([-']?[\p{L}]+)*)+$/;
-  // Check for email address
-
-  const error = document.querySelector(".error");
-
-  const dateTime = new Date().toDateString();
 
   doc.setFontSize(12);
   doc.setFont(undefined, "normal");
@@ -234,5 +235,11 @@ document.getElementById("submit").addEventListener("click", function () {
     .replace("image/png", "image/octet-stream");
   doc.addImage(`${data}`, "image/png", 128, 220, 80, 50);
 
-  doc.save(`${userName} NDA.pdf`);
+  if (signaturePad.isEmpty()) {
+    error.style.display = "block";
+    error.innerHTML = "Please enter a signature";
+    return false;
+  } else {
+    doc.save(`${userName} NDA.pdf`);
+  }
 });
